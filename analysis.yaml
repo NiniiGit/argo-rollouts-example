@@ -1,0 +1,28 @@
+kind: AnalysisTemplate
+apiVersion: argoproj.io/v1alpha1
+metadata:
+  name: canary-check
+spec:
+  metrics:
+  - name: test
+    provider:
+      job:
+        spec:
+          backoffLimit: 1
+          template:
+            spec:
+              containers:
+              - name: busybox
+                image: busybox
+              # - name: test
+              #   image: radial/busyboxplus:curl
+              #   args:
+              #   - /bin/sh
+              #   - -c
+              #   - "curl http://rollouts-demo-canary:80\n"
+              #   #command: ["curl -o /dev/null -s -w \"%{http_code}\n" \"http://rollouts-demo-canary:80""]  
+              #   #[my-test-script, my-service.default.svc.cluster.local]
+              restartPolicy: Never
+  
+#kubectl run testbox --image radial/busyboxplus:curl --restart Never --command sleep 3000
+# curl -o /dev/null -s -w "%{http_code}\n" http://rollouts-demo-canary:80
