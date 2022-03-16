@@ -12,7 +12,10 @@ spec:
     http:
       paths:
       - path: /dev/
+        pathType: Prefix
         backend:
           # Reference to a Service name, also specified in the Rollout spec.strategy.canary.stableService field
-          serviceName: {{ .Chart.Name }}-stable
-          servicePort: 80
+          service:
+            name: {{ .Chart.Name }}-stable
+            port: 
+              number: 80

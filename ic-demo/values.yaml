@@ -40,7 +40,7 @@ service:
   type: ClusterIP
   port: 80
 
-hostname: "*"
+hostname: c-33aa5aa1-2711-435d-a978-b32c51341bb2-cloudyuga-28466807-j9ptn.cloudyuga.guru
 
 canary:
   header:
