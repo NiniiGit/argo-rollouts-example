@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: rollouts-demo
+  name: rollouts-demo
+spec:
+  replicas: 3
+  strategy: 
+    rollingUpdate:
+      maxSurge: 3
+      maxUnavailable: 1
+  selector:
+    matchLabels:
+      app: rollouts-demo      
+  template:
+    metadata:
+      labels:
+        app: rollouts-demo
+    spec:
+      containers:
+      - image: argoproj/rollouts-demo:blue
+        name: rollouts-demo
+        resources:
+          requests:
+            memory: 32Mi
+            cpu: 5m
