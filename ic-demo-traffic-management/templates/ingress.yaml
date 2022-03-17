@@ -11,7 +11,7 @@ spec:
   - host: {{ .Values.hostname }}
     http:
       paths:
-      - path: /dev/
+      - path: /
         pathType: Prefix
         backend:
           # Reference to a Service name, also specified in the Rollout spec.strategy.canary.stableService field
