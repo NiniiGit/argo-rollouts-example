@@ -74,7 +74,7 @@ NAME                                    KIND        STATUS     AGE    INFO
 
 7. Now access the app url using the exposed ingress url by passing the custom header values. 
 
-`curl -H "DexCare: UAT" -IL http://internal-ad589ed4172264a62a581351d9313a9b-111396119.us-west-2.elb.amazonaws.com/helloe/jsbdsdsd.html`
+`curl -H "canary: yep" -IL http://internal-ad589ed4172264a62a581351d9313a9b-111396119.us-west-2.elb.amazonaws.com/helloe/jsbdsdsd.html`
 
 8. Now, you need to promote the rollout object after manual verification. 
 
