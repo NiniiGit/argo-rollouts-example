@@ -16,6 +16,8 @@ This demo application is a simple demonstration of the the Argo-Rollout with Can
 1. Clone this repository and checkout branch "ic-demo"
 2. From your repository root, run the following command.  
 
+ `kubectl create ns ic-demo`
+
 `helm install demo-nginx -n ic-demo ./ic-demo`
 
 This will create all the necessary k8s objects in `ic-demo` namespace.
