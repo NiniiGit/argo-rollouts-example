@@ -6,8 +6,6 @@ spec:
   replicas: 5
   strategy:
     canary:
-      canaryService: rollouts-demo-canary
-      stableService: rollouts-demo
       steps:
       - setWeight: 20
       - pause: {duration: 10}
@@ -40,6 +38,3 @@ spec:
           requests:
             memory: 32Mi
             cpu: 5m
-
-#kubectl run testbox --image radial/busyboxplus:curl --restart Never --command sleep 3000
-# curl -o /dev/null -s -w "%{http_code}\n" http://rollouts-demo-canary:80
