@@ -14,5 +14,5 @@ spec:
               containers:
               - name: busybox
                 image: busybox
-                #args: [ninad]  #--> for making analysis fail, uncomment
+                #args: [test]  #--> for making analysis fail, uncomment
               restartPolicy: Never
