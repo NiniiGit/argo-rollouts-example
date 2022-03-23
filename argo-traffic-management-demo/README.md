@@ -1,19 +1,16 @@
-Readme comes later !!!
-
 This demo application is a simple demonstration of the the Argo-Rollout with Canary stratregy. It uses the upstream simple nginx docker image (with different tags) for this purpose. 
 
 # Prerequisites.
 
-1. Argo-Rollouts should be deployed into your cluster (Already done)
-2. kubectl cli installed on your local machine which should have the respective configurations for accessing  aardvark.dexcare.engineering
+1. Argo-Rollouts should be deployed into your cluster.
+2. kubectl cli installed on your machine.
 3. helm 3 must be installed on your local machine.
 4. git cli for cloning the repository.
-3. DexCare VPN is required to access the ALB end point for testing real time app URL. (Optional)
 
 
 **Steps :**
 
-1. Clone this repository and checkout branch "ic-demo"
+1. Clone this repository.
 2. From your repository root, run the following command.  
 
  `kubectl create ns ic-demo`
@@ -32,7 +29,7 @@ This will create all the necessary k8s objects in `ic-demo` namespace.
 
 The `demo-nginx` name is the rollout object name, not the helm package name. Don't get confused.
 
-5. If you look at the above command output, you could see the rollout object has been created with the given replicas (1). Since this is the first rivision, there will not be any canary replicaset. Now you can update the image tag in `values.yaml` and run a `helm upgrade` to update the rollout object.
+5. If you look at the above command output, you could see the rollout object has been created with the given replicas (1). Since this is the first revision, there will not be any canary replicaset. Now you can update the image tag in `values.yaml` and run a `helm upgrade` to update the rollout object.
 
 `helm upgrade demo-nginx -n ic-demo ./ic-demo`
 
@@ -76,7 +73,7 @@ NAME                                    KIND        STATUS     AGE    INFO
 
 7. Now access the app url using the exposed ingress url by passing the custom header values. 
 
-`curl -H "canary: yep" -IL http://internal-ad589ed4172264a62a581351d9313a9b-111396119.us-west-2.elb.amazonaws.com/helloe/jsbdsdsd.html`
+`curl -H "canary: yep" -IL http://<your-host-name>/helloe/jsbdsdsd.html`
 
 8. Now, you need to promote the rollout object after manual verification. 
 
